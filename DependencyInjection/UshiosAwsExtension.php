@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Definition;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -40,7 +41,17 @@ class UshiosAwsExtension extends Extension
     protected function clientSettings(array $configs, ContainerBuilder $container)
     {
         foreach($configs as $key => $infos){
-            var_dump($infos);
+            $clientDefinition = new Definition();
+            $clientDefinition->setClass($infos['class']);
+            
+            $clientDefinition->setArguments(array($infos));
+            
+            $clientServiceId = 'ushios_aws_client';
+            if ($key != 'default'){
+                $clientServiceId = $clientServiceId.'_'.$key;
+            }
+            
+            $container->setDefinition($clientServiceId, $clientDefinition);
         }
     }
 }
