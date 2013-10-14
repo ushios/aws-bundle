@@ -5,18 +5,38 @@ Create aws client using 'config.yml'.
 
 ---
 
-# Get started!
+# Installation
 
-Add to composer.json
+### composer.json
 
-    "ushios/aws-bundle": "1.0.*"
+    # composer.json
+    "require": {
+        "ushios/aws-bundle": "1.0.*",
+        …
+    }
 
 and run `composer update` command.
 
-# Settings
+### AppKernel.php
+
+    # app/AppKernel.php
+    
+    public function registerBundles()
+    {
+        bundles = array(
+            // ...
+            new Ushios\Bundle\AwsBundle\UshiosAwsBundle(),
+        );
+        
+        retrun bundles();
+    }
+
+
+# Confguration
 
 config.yml
 
+    # app/config/config.php
     ushios_aws:
     client:
         default:
@@ -33,8 +53,18 @@ config.yml
 
 Using default settings aws client.
 
-    $aws = $this->container->get('ushios_aws_client');
+    # Bundle/Controller/Controller.php
+
+	public function fooAction()
+    {
+        $aws = $this->container->get('ushios_aws_client');
+    }
 
 Using named settings. 
 
-    $aws = $this->container->get('ushios_aws_client_named');
+    # Bundle/Controller/Controller.php
+
+	public function fooAction()
+    {
+        $aws = $this->container->get('ushios_aws_client_named');
+    }
