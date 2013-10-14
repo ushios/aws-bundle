@@ -1,0 +1,7 @@
+parameters:
+#    ushios_aws.example.class: Ushios\Bundle\AwsBundle\Example
+
+services:
+#    ushios_aws.example:
+#        class: %ushios_aws.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
