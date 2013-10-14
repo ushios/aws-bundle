@@ -21,8 +21,26 @@ class UshiosAwsExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
+        
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        
+        // 
+        if (!empty($config['client'])){
+            $this->clientSettings($config['client'], $container);
+        }
+        
         $loader->load('services.yml');
+    }
+    
+    /**
+     * Reading the config.yml for aws-sdk client.
+     * @param array $configs
+     * @param ContainerBuilder $container
+     */
+    protected function clientSettings(array $configs, ContainerBuilder $container)
+    {
+        foreach($configs as $key => $infos){
+            var_dump($infos);
+        }
     }
 }
