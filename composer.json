@@ -2,7 +2,7 @@
     "name": "ushios/aws-bundle",
     "type": "symfony-bundle",
     "description": "Symfony AwsBundle",
-    "keywords": ["AWS", "amazon web services", "amazon"],
+    "keywords": ["aws", "amazon web services"],
     "homepage": "http://github.com/ushios/aws-bundle",
     "license": "MIT",
     "authors": [
