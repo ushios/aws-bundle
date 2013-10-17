@@ -66,5 +66,5 @@ Using named settings.
 
 	public function fooAction()
     {
-        $aws = $this->container->get('ushios_aws_client_named');
+        $aws = $this->container->get('ushios_aws_client.named');
     }

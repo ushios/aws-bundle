@@ -48,7 +48,7 @@ class UshiosAwsExtension extends Extension
             
             $clientServiceId = 'ushios_aws_client';
             if ($key != 'default'){
-                $clientServiceId = $clientServiceId.'_'.$key;
+                $clientServiceId = $clientServiceId.'.'.$key;
             }
             
             $container->setDefinition($clientServiceId, $clientDefinition);
