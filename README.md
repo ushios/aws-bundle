@@ -11,7 +11,7 @@ Create aws client using 'config.yml'.
 
     # composer.json
     "require": {
-        "ushios/aws-bundle": "1.0.*",
+        "ushios/aws-bundle": "0.0.*",
         …
     }
 
