@@ -58,6 +58,8 @@ Using default settings aws client.
 	public function fooAction()
     {
         $aws = $this->container->get('ushios_aws_client');
+        // or
+        $aws = $this->container->get('ushios_aws_client.default');
     }
 
 Using named settings. 
@@ -67,4 +69,5 @@ Using named settings.
 	public function fooAction()
     {
         $aws = $this->container->get('ushios_aws_client.named');
+        get_class($aws); // Your\Aws\Client
     }
